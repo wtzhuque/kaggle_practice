@@ -4,7 +4,6 @@
 import pandas
 
 
-
 def main():
     """
     Analyze Data
@@ -13,7 +12,6 @@ def main():
     train_data = pandas.read_csv(train_file)
     print(train_data.ExterQual.describe())
     print(train_data.ExterCond.describe())
-
 
 
 if __name__ == '__main__':
