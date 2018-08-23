@@ -26,7 +26,13 @@ def main():
     features = train_data[feature_columns]
     label = train_data.SalePrice
 
-    features_new = SelectKBest(f_regression, k=5).fit_transform(features, label)
+    feature_selector = SelectKBest(f_regression, k=5).fit(features, label)
+    feature_status = feature_selector.get_support()
+    for idx in range(0, len(feature_columns)):
+	    if feature_status[idx]:
+		    print("%s is selected" % feature_columns[idx])
+	    else:
+		    print("%s is droped" % feature_columns[idx])
 
 
 if __name__ == '__main__':
