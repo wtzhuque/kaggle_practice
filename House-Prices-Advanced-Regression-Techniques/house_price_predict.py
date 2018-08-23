@@ -1,4 +1,7 @@
-#!/bin/usr/env python import pandas from sklearn.tree import DecisionTreeRegressor
+#!/bin/usr/env python
+import pandas
+
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
@@ -36,7 +39,7 @@ def main():
     features.insert(0, "MSZoning", fea_zoning)
     features.insert(0, "Condition1", fea_cond1)
     features.insert(0, "Condition2", fea_cond2)
-    print(features.columns)
+    #print(features.columns)
     label = train_data.SalePrice
 
     # Split samples to train set and test set
