@@ -26,7 +26,9 @@ def main():
     features = train_data[feature_columns]
     label = train_data.SalePrice
 
-    features_new = SelectKBest(f_regression, k=5).fit_transform(features, label)
+    #selector = SelectKBest(f_regression, k=5).fit(features, label)
+    selector = SelectKBest(chi2, k=5).fit(features, label)
+    print(selector.get_support())
 
 
 if __name__ == '__main__':

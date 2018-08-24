@@ -32,7 +32,14 @@ def main():
     fea_cond2 = enc.fit_transform(train_data.Condition2)
 
     # Features
-    feature_columns = ['MSSubClass', 'LotArea','OverallQual','OverallCond', 'MiscVal', '1stFlrSF', '2ndFlrSF', 'GarageArea']
+    feature_columns = ['MSSubClass',
+                       'LotArea',
+                       'OverallQual',
+                       'OverallCond',
+                       'MiscVal',
+                       '1stFlrSF',
+                       '2ndFlrSF',
+                       'GarageArea']
 
     features = train_data[feature_columns]
     features.insert(0, "Neighborhood", fea_neighbor)
