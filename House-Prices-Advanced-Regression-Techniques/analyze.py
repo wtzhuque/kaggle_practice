@@ -24,15 +24,18 @@ def main():
                        'GarageArea']
 
     features = train_data[feature_columns]
+    fea_num = len(feature_columns)
     label = train_data.SalePrice
 
-    feature_selector = SelectKBest(f_regression, k=5).fit(features, label)
-    feature_status = feature_selector.get_support()
+    feature_selectorA = SelectKBest(f_regression, k=5).fit(features, label)
+    feature_selectorB = SelectKBest(chi2, k=5).fit(features, label)
+    feature_statusA = feature_selectorA.get_support()
+    feature_statusB = feature_selectorB.get_support()
     for idx in range(0, len(feature_columns)):
-	    if feature_status[idx]:
-		    print("%s is selected" % feature_columns[idx])
-	    else:
-		    print("%s is droped" % feature_columns[idx])
+        if feature_statusA[idx] and feature_statusB[idx]:
+            print("%s is selected" % feature_columns[idx])
+        else:
+            print("%s is droped" % feature_columns[idx])
 
 
 if __name__ == '__main__':
